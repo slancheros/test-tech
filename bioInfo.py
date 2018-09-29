@@ -21,6 +21,7 @@ def get_torrebio():
 
 @app.route('/bio')
 def get_bio():
+
     resp = requests.get('https://torre.bio/api/people/sandralancheros')
     if resp.status_code != 200:
         return "error"
@@ -32,13 +33,14 @@ def get_bio():
         return render_template('index.html', user=user, name=name, photo=photo, headline = headline)
 
 
-@app.route('/linkedIn/Oauth', methods=['POST'])
+
+@app.route('/linkedIn/Oauth')
 def linked_authorization():
-    resp = requests.get('https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id='+linked_client_id+'&redirect_uri=http%3A%2F%2F34.207.142.147%2F&state=987654321&scope=r_basicprofile')
+    resp = requests.get('https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=78goqqwig5hwzc&redirect_uri=http%3A%2F%2F34.207.142.147%2F&state=xxxyyyy1&scope=r_basicprofile')
     if resp.status_code != 200:
         return "error"
     else:
-        return str(resp.json())
+        return resp.content
 
 
 
