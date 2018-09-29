@@ -27,7 +27,9 @@ def get_bio():
     else:
         user = resp.json()['publicId']
         name = resp.json()['name']
-        return render_template('index.html', author=author, name=name)
+        photo = resp.json()['picture']
+
+        return render_template('index.html', user=user, name=name, photo=photo)
 
 
 @app.route('/linkedIn/Oauth', methods=['POST'])
