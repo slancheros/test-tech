@@ -5,14 +5,14 @@
 	
 </a>
  <head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="//platform.linkedin.com/in.js">
    api_key: 78goqqwig5hwzc
    authorize: true
    onLoad: onLinkedInLoad
   </script>
-  
-   <script type="text/javascript">
+
+  <script type="text/javascript">
  
   // Setup an event listener to make an API call once auth is complete
   function onLinkedInLoad() {
@@ -36,8 +36,7 @@
     var userdata = data.values[0];
 
     $.ajax({
-     url: "saveuser.php",
-     type: "post",
+     type: "get",
      data: {"social_type": "linkedin","fname": userdata.firstName,"lname": userdata.lastName,"email": userdata.emailAddress, "profile_image": userdata.pictureUrl },
      success: function(response){
 
@@ -65,7 +64,8 @@
     <h2>Hello, my name is {{ name }}!</h2>
     <h3>{{headline}}</h3>
 	
-	  <script type="in/Login"></script>
+	<script type="in/Login"></script>
+
 	  
   <h3>Linked In Info</h3>
   <table id='tableUser' style='display: none;'>
